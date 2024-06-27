@@ -1,6 +1,9 @@
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import lit, upper, concat, length, current_date, sum
 
+# Initialize Spark Session
+spark = SparkSession.builder.appName("CSV Transformations").getOrCreate()
+
 # Read CSV File
 df = spark.read.csv("/tmp/catbd125/ammad/nvidia.csv", header=True, inferSchema=True)
 df.show()
